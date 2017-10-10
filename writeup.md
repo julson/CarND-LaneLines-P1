@@ -46,7 +46,7 @@ with the right parameters gives us the lane lines in the image.
 ![alt text][mask] ![alt text][masked_edges] ![alt text][hough]
 
 It's all pretty straight-forward so far. Now we need to extrapolate all the line segments
-that we just received to map out the lane boundaries. We can do that calculating the slope for each line (`slope = (y2-y1)/(x2-x1)`) and sorting them out based on whether they are positive or
+that we just received to map out the lane boundaries. We can do that by calculating the slope for each line (`slope = (y2-y1)/(x2-x1)`) and sorting them out based on whether they are positive or
 negative. Given that the origin is on the upper left-hand side of the image, the right lane will have a positive angle/slope and the left lane will have a negative slope.  By averaging these slopes and the points on each side, we can use the results to fit a line through each lane.
 It took me forever to figure this out (flunked Algebra class, don't ask), but we can then draw the lanes using the point-slope form (`(y - y') = m(x - x')`), given what we have plus our region
 mask's y-coordinates as our y values. This gives us:
@@ -63,7 +63,7 @@ The challenge video provided some interesting challenges (heh). First, the lanes
 and there are sections of the road where shadows trip up edge detection. The hood of the car also
 adds some additional noise to the image. There wasn't much I can do with the curves yet,
 which was all right for now since it's only causing issues towards the horizon. The shadows
-causes the yellow lane to be indistinguisable with the main road, so we need bring some color
+causes the yellow lane to be indistinguishable with the main road, so we need to bring some color
 information back. You can also notice some horizontal lines managing to sneak themselves inside the region, which causes our final lane markers to skew towards horizontal.
 
 ![alt text][shadowed] ![alt text][no_yellow]
@@ -80,14 +80,17 @@ we create a reasonable output:
 
 ### 2. Identify potential shortcomings with your current pipeline
 
+There are probably a lot of potential short-comings, but first thing that comes to mind is how sensitive edge detection is to shadows and noise. The pipeline assumes a best-case scenario where we're on a wide highway, there are no cars upfront, no objects are obscuring the lane markers, and there is a reasonable amount of lighting/daylight that allows edge and line detection to do its work.
 
-One potential shortcoming would be what would happen when ...
+Right now it also doesn't handle any curved roads well at all. The highway provides a large enough turn that we can treat the most of the lane as a straight line, but for tight hairpin turns for example, this won't work.
 
-Another shortcoming could be ...
+As far as range is concerned, it's only capable of picking up lanes that are approximately 3 cars in length, which doesn't sound sufficient, especially in terms of being able the anticipate sudden changes in road condition.
+
+We're also filtering out certain lines (like horizontal ones) as noise, but there are certain cases where this is important, like lines that mark the end of a road for example. In these cases we might want these lines as additional input to the car's decision-making process.
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+Well, limiting the scope of improvements to just the lane detection quality, we can address the issue of not being able to adapt to turns by doing some sort of curve fitting (which is way beyond me right now). Assuming lane line features don't change abruptly, we can also use previous lane information to predict the lanes in the subsequent images, avoiding the "oh no there's a car on top of the line, there are no more lines! noooo! _crash_**" situation.
 
-Another potential improvement could be to ...
+If we can detect vehicle silhouettes (or any kind of non-lane silhouettes for that matter), we can also subtract those from the image to reduce noise.
