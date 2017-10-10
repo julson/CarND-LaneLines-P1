@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [gray]: ./examples/grayscale.png "Grayscale"
-[blurred]: ./examples/blurred_gray.jpg "Blurred Grayscale"
+[blurred]: ./examples/blurred_gray.png "Blurred Grayscale"
 [canny]: ./examples/canny.jpg "Canny Edge Detection"
 [mask]: ./examples/region_mask.jpg "Region Mask"
 [masked_edges]: ./examples/masked_edges.jpg "Masked Edges"
