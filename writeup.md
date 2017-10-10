@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [masked_edges]: ./examples/masked_edges.jpg "Masked Edges"
 [hough]: ./examples/hough_lines.jpg "Hough Transform"
 [lines]: ./examples/lane_lines.jpg "Lane Lines"
-[out]: ./examples/out.jpg "Final Output"
+[out]: ./examples/out.png "Final Output"
 [shadowed]: ./examples/shadowed_lane.jpg "Shadowed Lane"
 [no_yellow]: ./examples/no_yellow_lane.jpg "No Yellow Lane"
 [challenge]: ./examples/challenge_out.jpg "Challenge Output"
