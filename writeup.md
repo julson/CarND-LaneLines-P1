@@ -63,7 +63,7 @@ The challenge video provided some interesting challenges (heh). First, the lanes
 and there are sections of the road where shadows trip up edge detection. The hood of the car also
 adds some additional noise to the image. There wasn't much I can do with the curves yet,
 which was all right for now since it's only causing issues towards the horizon. The shadows
-causes the yellow lane to be indistinguishable with the main road, so we need to bring some color
+cause the yellow lane to be indistinguishable from the main road, so we need to bring some color
 information back. You can also notice some horizontal lines managing to sneak themselves inside the region, which causes our final lane markers to skew towards horizontal.
 
 ![alt text][shadowed] ![alt text][no_yellow]
