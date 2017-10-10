@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [canny]: ./examples/canny.png "Canny Edge Detection"
 [mask]: ./examples/region_mask.jpg "Region Mask"
 [masked_edges]: ./examples/masked_edges.jpg "Masked Edges"
-[hough]: ./examples/hough_lines.jpg "Hough Transform"
+[hough]: ./examples/hough_lines.png "Hough Transform"
 [lines]: ./examples/lane_lines.jpg "Lane Lines"
 [out]: ./examples/out.png "Final Output"
 [shadowed]: ./examples/shadowed.png "Shadowed Lane"
