@@ -82,7 +82,7 @@ we create a reasonable output:
 
 There are probably a lot of potential short-comings, but first thing that comes to mind is how sensitive edge detection is to shadows and noise. The pipeline assumes a best-case scenario where we're on a wide highway, there are no cars upfront, no objects are obscuring the lane markers, and there is a reasonable amount of lighting/daylight that allows edge and line detection to do its work.
 
-Right now it also doesn't handle any curved roads well at all. The highway provides a large enough turn that we can treat the most of the lane as a straight line, but for tight hairpin turns for example, this won't work.
+Right now it also doesn't handle any curved roads well at all. The highway provides a large enough turn arc that we can treat the most of the lane as a straight line, but for tight hairpin turns for example, this won't work.
 
 As far as range is concerned, it's only capable of picking up lanes that are approximately 3 cars in length, which doesn't sound sufficient, especially in terms of being able the anticipate sudden changes in road condition.
 
