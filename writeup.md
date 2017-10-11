@@ -53,7 +53,7 @@ mask's y-coordinates as our y values. This gives us:
 
 ![alt text][lines]
 
-Super-imposing these lines on top of the original image allows us to check if the lines are
+Superimposing these lines on top of the original image allows us to check if the lines are
 a reasonable fit. I've also added green lines to let us compare the results from the Hough
 transform step.
 
